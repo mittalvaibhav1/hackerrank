@@ -11,35 +11,20 @@ public class Solution {
 
     // Complete the cutTheSticks function below.
     static int[] cutTheSticks(int[] arr) {
-        int[] res = new int[arr.length];
-        int min = Integer.MAX_VALUE;
+        int[] tmp = new int[arr.length];
         int k = 0;
-        //Finding Minimum
-        for(int i : arr) {
-            min = Math.min(i,min);   
-        }
-        //Cutting Sticks. 
-        for(int i = 0 ; i < arr.length ; i++) {
-            int newMin = Integer.MAX_VALUE;
-            int changes = 0;
-            for(int j = 0 ; j < arr.length ; j++) {
-                if(arr[j]!=0) {
-                    arr[j]-=min;
-                    changes++;
-                }
-                if(arr[j]!=0) {
-                    newMin = Math.min(newMin,arr[j]);
-                }
+        Arrays.sort(arr);
+        tmp[k++] = arr.length;
+        for(int i = 1 ; i < arr.length ; i++) {
+            if(arr[i-1]!= arr[i]) {
+                tmp[k++] = arr.length - i;
             }
-            if(changes == 0) break;
-            min = newMin;
-            res[k++] =  changes;
         }
-        int[] ans = new int[k];
+        int[] res = new int[k];
         for(int i = 0 ; i < k ; i++) {
-            ans[i] = res[i];
-        } 
-        return ans;
+            res[i] = tmp[i];
+        }
+        return res;
     }
 
     private static final Scanner scanner = new Scanner(System.in);
