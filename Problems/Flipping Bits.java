@@ -14,18 +14,12 @@ public class Solution {
         long toggler = 1;
         toggler =  (toggler << 31);
         long ans = 0;
-        System.out.println("N : " + Long.toBinaryString(n));
         for(int i = 0 ; i < 32 ; i++) {
             long bit = (n & toggler);
-            System.out.println(i + " Bit : " + bit);
-            System.out.println(Long.toBinaryString(toggler));
             if(bit > 1) bit = 1;
             bit = (bit ^ 1);
-            System.out.println("XOR : " + bit);
             ans = (ans | bit);
-            System.out.println("B : " + Long.toBinaryString(ans));
             ans = (ans << 1);
-            System.out.println("A :" + Long.toBinaryString(ans));
             toggler = (toggler >> 1);
         }
         return (ans >> 1);
