@@ -8,7 +8,7 @@ import java.util.concurrent.*;
 import java.util.regex.*;
 
 public class Solution {
-```    
+
     static HashMap<Integer,Integer> map;
     static int[] bfs(int n, int m, int[][] edges, int s) {
         map = new HashMap<>();
@@ -61,7 +61,7 @@ public class Solution {
             }
         }
     }
-```
+
     private static final Scanner scanner = new Scanner(System.in);
 
     public static void main(String[] args) throws IOException {
